@@ -40,15 +40,19 @@ int solicitaDia(int anyo, int mes, int& dia, string msg){
 	cout <<msg;
 	cin >> dia;
 	if (dia<1 || dia>31){
-		solicitaDia (anyo, mes, dia, msg);
+		cout <<"ERROR: El dia introducido no es válido" <<endl;
+		solicitaDia(anyo, mes, dia, msg);
 	}
-	if (dia>30 && mes==4 || mes==6 || mes==9 || mes==11){
+	if ((mes==4 || mes==6 || mes==9 || mes==11) && (dia>30)){
+		cout <<"ERROR: El dia introducido no es válido" <<endl;
 		solicitaDia(anyo, mes, dia, msg);
 	}
 	if (dia>28 && mes==2 && !esBisiesto(anyo)){
+		cout <<"ERROR: El dia introducido no es válido" <<endl;
 		solicitaDia(anyo, mes, dia, msg);
 	}
 	if (dia>29 && mes==2 && esBisiesto(anyo)){
+		cout <<"ERROR: El dia introducido no es válido" <<endl;
 		solicitaDia(anyo, mes, dia, msg);
 	}
 	return dia;
@@ -56,8 +60,10 @@ int solicitaDia(int anyo, int mes, int& dia, string msg){
 
 
 
-void mostrar(int anyo, int mes, int dia){
+
+void mostrar(int anyo, int mes, int dia, long int diasTranscurridos){
 	cout <<dia <<"/" <<mes <<"/" <<anyo <<endl;
+	cout <<diasTranscurridos <<endl;
 }
 
 int main(int argc, char** args){
