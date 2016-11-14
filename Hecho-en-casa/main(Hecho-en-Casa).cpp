@@ -5,7 +5,6 @@
 using namespace std;
 
 
-
 int solicitaAnyo(int& anyo, string msg) {
 	cout << msg ;
 	cin >> anyo;
@@ -88,11 +87,16 @@ int dias_anyo_mas_transcurridos_en_el_mes (int numAnyos, int dias_mes){//<-- Cal
 	return suma1;
 }
 
-int suma_1_mas_dias_transcurridos_entre_meses(int suma1, int mes){//<-- Calcula la suma del metodo anterior mas los dias entre enero--mm
-	
+int diferencia_de_meses(int mes){//<-- Calcula el numero de meses entre enero--mm
+	int meses;
+	meses = mes - 1;
+	return meses;
 }
 
-void mostrar(int anyo,int mes,int dia,int numBisiestos,int numAnyos,int dias_mes, int suma1){
+int suma_1_mas_dias_transcurridos_entre_meses(int suma1, int mes, int diferencia_meses){//<-- Calcula la suma del metodo anterior mas los dias entre enero--mm	
+}
+
+void mostrar(int anyo,int mes,int dia,int numBisiestos,int numAnyos,int dias_mes, int suma1, int meses){
 	cout <<"1-> Año introducido: " <<anyo <<endl;
 	cout <<"2-> Mes introdocido: " <<mes <<endl;
 	cout <<"3-> Dia introducido: " <<dia <<endl;
@@ -100,12 +104,13 @@ void mostrar(int anyo,int mes,int dia,int numBisiestos,int numAnyos,int dias_mes
 	cout <<"5-> Diferencia de años transcurridos exprsado en dias: " <<numAnyos <<endl;
 	cout <<"6-> Dias transcurridos hasta el primer dia del mes " <<mes <<" : " <<dias_mes <<endl;
 	cout <<"7-> Apartado 5 + Apartado 6: "<<numAnyos <<" + " <<dias_mes <<" = " <<suma1 <<endl;
-	cout <<"8-> Diferencia de meses transcurridos expresada en dias: " <<endl;//<--Falta este metodo
-	cout <<"9-> Apartado 7 + Apartado 8: " <<suma1 <<" + " <<" = " <<endl;
+	cout <<"8-> Meses transcurridos: " <<meses <<endl;
+	cout <<"9-> Diferencia de meses transcurridos expresada en dias: " <<endl;//<--Falta este metodo
+	cout <<"10-> Apartado 7 + Apartado 9: " <<suma1 <<" + " <<" = " <<endl;
 }
 
 int main (int argc, char** args){
-	int anyo, mes, dia, anyoInicio, anyoFinal, numBisiestos, numAnyos, dias_mes, suma1;
+	int anyo, mes, dia, anyoInicio, anyoFinal, numBisiestos, numAnyos, dias_mes, suma1, meses;
 	solicitaAnyo (anyo, "Introduce el año: ");
 	solicitaMes (mes, "Introduce el mes: ");
 	solicitaDia (anyo, mes, dia, "Introduce el dia: ");
@@ -113,7 +118,8 @@ int main (int argc, char** args){
 	numAnyos = diasAnyosCompletos (anyo, numBisiestos);
 	dias_mes = dias_transcurridos_en_el_mes_dado(dia, mes, anyo);
 	suma1 = dias_anyo_mas_transcurridos_en_el_mes (numAnyos, dias_mes);
-	mostrar (anyo, mes, dia, numBisiestos, numAnyos, dias_mes, suma1);
+	meses = diferencia_de_meses (mes);
+	mostrar (anyo, mes, dia, numBisiestos, numAnyos, dias_mes, suma1, meses);
 	system ("pause");
 	return 0;
 }
