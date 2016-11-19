@@ -4,6 +4,7 @@
 #include <cstring>
 using namespace std;
 
+int dias[12] = { 0, 31, 29, 31, 30, 31, 30, 30, 31, 30, 31, 30 };//Array que contiene los dias de los meses
 
 int solicitaAnyo(int& anyo) {
 	cout << "Introduce el año: ";
@@ -77,7 +78,6 @@ long int diasAnyosCompletos(int anyo, int numBisiestos){ //<-- dias entre 1/1/19
 	return numAnyos;//<-- Dias transcurridos de aaaa--1900	
 }
 
-
 int dias_transcurridos_en_el_mes_dado(int dia){// <-- Calcula los dias entre el 1--dd
 	int dias_mes;
 	dias_mes = dia - 1;
@@ -96,9 +96,6 @@ int diferencia_de_meses(int mes){//<-- Calcula el numero de meses entre enero--m
 	return meses;//<-- Numero de meses transcurridos de mm--01
 }
 
-
-int dias[12] = { 0, 31, 29, 31, 30, 31, 30, 30, 31, 30, 31, 30 };
-
 int dias_de_la_diferencia_de_meses(int meses){//<-- Calcula el numero de dias total entre los meses transcurridos hasta enero
 	int diferencia_meses, n;
 	diferencia_meses = 0;
@@ -107,7 +104,6 @@ int dias_de_la_diferencia_de_meses(int meses){//<-- Calcula el numero de dias to
 	}
 	return diferencia_meses; //<-- Dias transcurridos de mm--01
 }
-
 
 long int diasTranscurridos(int anyo, int suma1, int mes, int diferencia_meses){//<-- Calcula la suma del metodo anterior mas los dias entre enero--mm
 	long int numDias;
